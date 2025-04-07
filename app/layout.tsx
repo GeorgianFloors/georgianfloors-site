@@ -6,7 +6,6 @@ import NavBar from '@/components/layout/NavBar';
 
 // ✅ Imports
 import HydrationCheck from '@/components/HydrationCheck';
-import Header from '@/components/layout/Header'; // <-- Add this line
 
 // ✅ Fonts
 const geistSans = Geist({
@@ -42,7 +41,7 @@ export default function RootLayout({
         <NavBar />
 
         {/* 🔥 Add the persistent site-wide header */}
-        <Header />
+       
 
         {children}
       </body>

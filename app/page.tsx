@@ -5,7 +5,7 @@ import Services from '@/components/sections/Services';
 import Testimonials from '@/components/sections/Testimonials';
 import Footer from '@/components/ui/Footer';
 import Navbar from '@/app/components/layout/Navbar';
-import Header from '@/components/Header/Header';
+
 
 
 export default function Home() {
