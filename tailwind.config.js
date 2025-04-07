@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 theme: {
   extend: {
     colors: {
@@ -8,3 +9,6 @@ theme: {
     }
   }
 }
+=======
+module.exports = { content: ['./pages/**/*.{js,ts,jsx,tsx}'], theme: { extend: {} }, plugins: [] }
+>>>>>>> d8957e61660405b672ea2b3eb711ff6b81c9d2de

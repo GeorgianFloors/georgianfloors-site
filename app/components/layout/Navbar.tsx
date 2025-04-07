@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import styles from './Navbar.module.css';
 
 const links = [
   { name: 'Home', href: '/' },
@@ -17,11 +18,13 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="bg-white shadow sticky top-0 z-50">
+    <header className={styles.navbar}>
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-bold text-blue-700">
+        <Link href="/" className={styles.logo}>
           Georgian Floors
         </Link>
+
+        {/* Desktop nav */}
         <nav className="hidden md:flex space-x-6 text-sm font-medium relative">
           {links.map((link) => (
             <div
@@ -32,19 +35,20 @@ export default function Navbar() {
             >
               <Link
                 href={link.href}
-                className={`hover:text-blue-600 transition ${
+                className={`${styles.link} ${
                   pathname === link.href ? 'text-blue-600 font-semibold' : ''
                 }`}
               >
                 {link.name}
               </Link>
+
               {link.submenu && hoveredMenu === link.name && (
-                <div className="absolute top-full left-0 bg-white border rounded shadow-lg py-2 mt-2 z-10">
+                <div className={styles.dropdown}>
                   {link.submenu.map((item) => (
                     <Link
                       key={item}
                       href={`/carpet/${item.toLowerCase()}`}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      className="text-sm"
                     >
                       {item}
                     </Link>
@@ -54,11 +58,14 @@ export default function Navbar() {
             </div>
           ))}
         </nav>
+
+        {/* Mobile menu button */}
         <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
           ☰
         </button>
       </div>
 
+      {/* Mobile menu */}
       {isOpen && (
         <div className="md:hidden px-6 pb-4">
           {links.map((link) => (
