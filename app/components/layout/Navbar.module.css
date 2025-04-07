@@ -42,4 +42,11 @@
   .dropdown a:hover {
     background-color: #f3f4f6;
   }
-  
+  /* Tailwind CSS for Dropdown Fade-in Effect */
+.dropdown-menu {
+  @apply opacity-0 transition-opacity duration-300 invisible;
+}
+
+.dropdown:hover .dropdown-menu {
+  @apply opacity-100 visible;
+}
